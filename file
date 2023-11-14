@@ -1,0 +1,55 @@
+Step 1: I am Choosing Azure as the Cloud Platform
+
+Step 2: Creating Necessary Infrastructure
+2.1 Networking Setup:
+
+Create a Virtual Network (VNet):
+Azure's Virtual Network provides isolation and segmentation. Create a VNet with subnets to separate the web, application, and database tiers.
+
+Set Up Network Security Groups (NSG):
+NSGs act as firewalls for Azure resources. Define NSGs for each tier, specifying inbound and outbound rules to control traffic.
+
+Configure Route Tables:
+Implement route tables to control traffic between subnets. Associate the web subnet with internet access, and application/database subnets without direct internet access.
+
+2.2 Compute Setup:
+
+Launch Web Server:
+Deploy a virtual machine (VM) in the public subnet to host the web server. Assign a public IP for external accessibility.
+
+Launch Application Server:
+In the private subnet, launch VMs for the application tier. Install Node.js and configure the Aquila MERN application. Restrict traffic to and from the web and database tiers.
+
+Launch Database Server:
+Set up a database instance (e.g., MongoDB) in the private subnet. Define NSG rules to permit traffic exclusively from the application tier.
+
+Step 3: Database Configuration
+
+Configure Aquila Application:
+Modify the Aquila application's configuration to use the private IP address of the database server. This ensures secure communication within the private network.
+
+Step 4: CI/CD Setup
+
+Set Up CI/CD Pipeline:
+Utilize Azure DevOps or a CI/CD tool to automate the deployment process. Configure a pipeline to fetch, build, and deploy the Aquila application to the application tier.
+
+Step 5: High-Level Design (HLD) Diagram
+
+Create a diagram to visually represent the three-tier architecture, including VNet, subnets, VMs, and NSGs. Clearly illustrate the flow of traffic and separation of tiers.
+Step 6: Web Application URL or IP Address
+
+Share the public IP address assigned to the web server in the public subnet as the Aquila web application URL. This ensures external users cannot directly access the application.
+Additional Considerations:
+
+Azure RBAC:
+Implement role-based access control (RBAC) in Azure to manage permissions and access control effectively.
+
+SSL/TLS:
+Enforce SSL/TLS to encrypt data in transit, enhancing the security of communication.
+
+Update and Patching:
+Regularly update and patch VMs, services, and components to address security vulnerabilities.
+
+Monitoring:
+Implement monitoring solutions to ensure the infrastructure's performance and security are continually assessed.
+
